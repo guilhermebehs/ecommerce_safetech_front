@@ -1,0 +1,16 @@
+.card{
+    margin-top:20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    height: 50%;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.image:hover{
+    cursor: pointer;
+}
+
+.image{
+    width: 150px;
+    height:190px;
+}

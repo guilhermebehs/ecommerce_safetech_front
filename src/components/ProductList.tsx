@@ -11,11 +11,13 @@ export default (props: any) =>{
 
     const [productList, setProductList] = useState<JSX.Element[]>([]);
     const [showLoadingIcon, setShowLoadingIcon] = useState<boolean>(true);
+    const [offset, setOffset] = useState<number>(0);
+    const [limit, setLimit] = useState<number>(10);
+ 
 
-    useEffect(()=>{
-             
+    useEffect(()=>{    
         getData();
-    },[])
+    },[offset, limit])
    
     async function getData(){
         const productService = new ProductService();
@@ -38,6 +40,12 @@ export default (props: any) =>{
             {productList}
             
             </div>
+            <div className="buttons">
+              <button className="button-back" disabled={offset <= 0} 
+                  onClick={()=> setOffset(offset - limit)}> {"<"} </button>
+              <button className="button-next" disabled={productList.length < limit}
+                  onClick={()=> setOffset(offset + limit)}>{">"}</button>
+            </div>  
             <LoadingIcon show={showLoadingIcon}/>
          </>
     )

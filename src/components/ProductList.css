@@ -5,5 +5,15 @@
   padding-top: 20px;
   flex-wrap: wrap;
   flex-direction: row;
-  background-color: rgb(221, 209, 209);
+ 
+}
+
+.buttons{
+  margin-bottom: 10px;
+}
+
+.button-next, .button-back{
+    
+   width: 45px;
+   height: 25px;
 }

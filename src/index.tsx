@@ -4,7 +4,7 @@ import './index.css';
 import Main from './screens/Main';
 
 ReactDOM.render(
-  <div style={{height:"100%"}}>
+  <div>
   <Main />
   </div>,
   document.getElementById('root')

@@ -16,7 +16,7 @@ export default class Main extends Component<MyProps, MyState>{
 
     render(){
         return(
-                <Provider store={store}>
+            <Provider store={store}>
                <div className="Main">   
                     <TopBar/>   
                     <ProductList/>

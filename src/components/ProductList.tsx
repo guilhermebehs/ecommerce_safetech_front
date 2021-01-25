@@ -5,7 +5,6 @@ import LoadingIcon from './LoadingIcon';
 import { IProductGet } from '../dto/IProduct';
 import ProductService from '../services/ProductService';
 import ProductCard from './ProductCard';
-import ProductDetails from '../screens/ProductDetails';
 
 
 export default (props: any) =>{

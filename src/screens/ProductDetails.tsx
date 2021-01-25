@@ -1,4 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { connect, ConnectedProps} from 'react-redux';
@@ -8,14 +7,14 @@ import './ProductDetails.css';
 
 const mapState = (state: any) => ({
   productsToBuy: state.product.productsToBuy
-})
+});
 
 const mapDispatch = {
   addProduct: (product: IProductGet) => ({ type: 'ADD_PRODUCTS_TO_SHOPPING_CART', payload:product }),
   cleanShoppingCart: () => ({ type: 'CLEAN_SHOPPING_CART'})
-}
+};
 
-const connector = connect(mapState, mapDispatch)
+const connector = connect(mapState, mapDispatch);
 
 type Props = ConnectedProps<typeof connector> & {
   product: IProductGet
@@ -49,7 +48,7 @@ const ProductDetails= (props:Props) =>{
                   <img src={imageUrl} alt="imagem" />
                 </div>
                 <div className="infoDetails">
-                  <p style={{  borderBottom: "3px solid #bbb"}}>{description}</p>
+                  <p  className="info">{description}</p>
                   <p className="priceDetails">R$ {price}</p>
                     <button className="buyButton" onClick={()=> props.addProduct(props.product)}>Adicionar ao carrinho</button>
                 </div>

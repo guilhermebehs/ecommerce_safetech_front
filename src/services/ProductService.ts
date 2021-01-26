@@ -19,13 +19,15 @@ export default class ComicsService {
     }
 
 
-    async getAll(): Promise<Array<IProductGet>>{
+    async getAll(limit=10, offset=0, nameLike= ''): Promise<Array<IProductGet>>{
         
 
          let products: Array<IProductGet>=[];
+
+         const query = `limit=${limit}&offset=${offset}&nameLike=${nameLike}`
         
          try{
-           const result = await this.#connection.get('/products')
+           const result = await this.#connection.get('/products?'+query)
            products = result.data as Array<IProductGet> || [];
          }
          catch(err){

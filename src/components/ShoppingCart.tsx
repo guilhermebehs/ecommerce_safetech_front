@@ -36,7 +36,7 @@ const ShoppingCart = (props:Props) =>{
          <div className="ShoppingCart">
                <span style={{marginLeft:'12px'}}>
                   {props.productsToBuy.length}
-               </span><CgShoppingCart size={30} style={{color:'white'}}/>
+               </span><CgShoppingCart size={20} style={{color:'white'}}/>
             </div>
          </Dropdown.Toggle>
          

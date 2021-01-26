@@ -5,9 +5,19 @@ import LoadingIcon from './LoadingIcon';
 import { IProductGet } from '../dto/IProduct';
 import ProductService from '../services/ProductService';
 import ProductCard from './ProductCard';
+import { connect, ConnectedProps } from 'react-redux';
 
+const mapState = (state: any) => ({
+    filter: state.product.filter,
+  })
 
-export default (props: any) =>{
+  const connector = connect(mapState)
+ 
+   type Props = ConnectedProps<typeof connector>
+ 
+ 
+
+const ProductLIst =  (props: Props) =>{
 
     const [productList, setProductList] = useState<JSX.Element[]>([]);
     const [showLoadingIcon, setShowLoadingIcon] = useState<boolean>(true);
@@ -17,11 +27,11 @@ export default (props: any) =>{
 
     useEffect(()=>{    
         getData();
-    },[offset, limit])
+    },[offset, limit, props.filter])
    
     async function getData(){
         const productService = new ProductService();
-        const data:Array<IProductGet> = await productService.getAll();
+        const data:Array<IProductGet> = await productService.getAll(limit, offset, props.filter);
         const list = data.map((product:IProductGet)=>{          
             return (
                 <ProductCard product={product}/>
@@ -50,3 +60,5 @@ export default (props: any) =>{
          </>
     )
 }
+
+export default connector(ProductLIst);
